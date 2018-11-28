@@ -68,6 +68,8 @@ export default DropzoneAreaExample;
 | showPreviews  | Boolean | false       | Shows previews **BELOW** the Dropzone
 | showPreviewsInDropzone| Boolean| true      | Shows preview **INSIDE** the dropzone
 | showAlerts    | Boolean | true             | shows styled snackbar alerts when files are dropped, deleted or rejected. 
+| text    | String | Drag and drop an image file here or click | Change the main text
+| snackbarPosition    | String | left | The position of the alert
     
 
 

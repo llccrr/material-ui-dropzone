@@ -127,7 +127,7 @@ class DropzoneArea extends Component{
         });
     };
     render(){
-        const {classes} = this.props;
+        const {classes, text, snackbarPosition} = this.props;
         const showPreviews = this.props.showPreviews && this.state.fileObjects.length > 0;
         const showPreviewsInDropzone = this.props.showPreviewsInDropzone && this.state.fileObjects.length > 0;
         return (
@@ -143,7 +143,7 @@ class DropzoneArea extends Component{
                      >
                     <div className={classes.dropzoneTextStyle}>
                         <p className={classes.dropzoneParagraph}>
-                            Drag and drop an image file here or click
+                            {text}
                         </p>
                         <CloudUploadIcon className={classes.uploadIconSize}/>
                     </div>
@@ -169,7 +169,7 @@ class DropzoneArea extends Component{
                     <Snackbar
                         anchorOrigin={{
                             vertical: 'bottom',
-                            horizontal: 'left',
+                            horizontal: {snackbarPosition},
                         }}
                         open={this.state.openSnackBar}
                         autoHideDuration={6000}
@@ -189,6 +189,8 @@ class DropzoneArea extends Component{
 
 DropzoneArea.defaultProps = {
     acceptedFiles: ['image/*', 'video/*', 'application/*'],
+    text: 'Drag and drop an image file here or click',
+    snackbarPosition: 'left',
     filesLimit: 3,
     maxFileSize: 3000000,
     showPreviews: false, // By default previews show up under in the dialog and inside in the standalone
