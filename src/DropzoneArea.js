@@ -213,6 +213,8 @@ DropzoneArea.propTypes = {
     onChange: PropTypes.func,
     onDrop: PropTypes.func,
     onDropRejected: PropTypes.func,
-    onDelete: PropTypes.func
+    onDelete: PropTypes.func,
+    text: PropTypes.string,
+    snackbarPosition: PropTypes.string
 }
 export default withStyles(styles)(DropzoneArea)

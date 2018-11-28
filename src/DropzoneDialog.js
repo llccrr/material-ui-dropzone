@@ -92,6 +92,8 @@ class DropzoneDialog extends React.Component {
                     <DialogTitle>Upload File</DialogTitle>
                     <DialogContent>
                         <DropzoneArea
+                            text={this.props.text}
+                            snackbarPosition={this.props.snackbarPosition}
                             acceptedFiles={this.props.acceptedFiles}
                             filesLimit={this.props.filesLimit}
                             maxFileSize={this.props.maxFileSize}
@@ -128,6 +130,8 @@ class DropzoneDialog extends React.Component {
 DropzoneDialog.defaultProps = {
     open: false,
     acceptedFiles: ['image/*', 'video/*', 'application/*'],
+    text: 'Drag and drop an image file here or click',
+    snackbarPosition: 'left',
     filesLimit: 3,
     maxFileSize: 3000000,
     showPreviews: true,
@@ -155,7 +159,9 @@ DropzoneDialog.propTypes = {
     showPreviews: PropTypes.bool,
     showPreviewsInDropzone: PropTypes.bool,
     showAlerts: PropTypes.bool,
-    clearOnUnmount: PropTypes.bool
+    clearOnUnmount: PropTypes.bool,
+    text: PropTypes.string,
+    snackbarPosition: PropTypes.string,
 }
 
 export default DropzoneDialog;
