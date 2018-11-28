@@ -1252,7 +1252,10 @@ var DropzoneArea = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var classes = this.props.classes;
+            var _props = this.props,
+                classes = _props.classes,
+                text = _props.text,
+                snackbarPosition = _props.snackbarPosition;
 
             var showPreviews = this.props.showPreviews && this.state.fileObjects.length > 0;
             var showPreviewsInDropzone = this.props.showPreviewsInDropzone && this.state.fileObjects.length > 0;
@@ -1276,7 +1279,7 @@ var DropzoneArea = function (_Component) {
                         React.createElement(
                             'p',
                             { className: classes.dropzoneParagraph },
-                            'Drag and drop an image file here or click'
+                            text
                         ),
                         React.createElement(CloudUploadIcon, { className: classes.uploadIconSize })
                     ),
@@ -1307,7 +1310,7 @@ var DropzoneArea = function (_Component) {
                     {
                         anchorOrigin: {
                             vertical: 'bottom',
-                            horizontal: 'left'
+                            horizontal: { snackbarPosition: snackbarPosition }
                         },
                         open: this.state.openSnackBar,
                         autoHideDuration: 6000,
@@ -1327,6 +1330,8 @@ var DropzoneArea = function (_Component) {
 
 DropzoneArea.defaultProps = {
     acceptedFiles: ['image/*', 'video/*', 'application/*'],
+    text: 'Drag and drop a file here or click',
+    snackbarPosition: 'left',
     filesLimit: 3,
     maxFileSize: 3000000,
     showPreviews: false, // By default previews show up under in the dialog and inside in the standalone
@@ -1349,7 +1354,9 @@ DropzoneArea.propTypes = {
     onChange: PropTypes.func,
     onDrop: PropTypes.func,
     onDropRejected: PropTypes.func,
-    onDelete: PropTypes.func
+    onDelete: PropTypes.func,
+    text: PropTypes.string,
+    snackbarPosition: PropTypes.string
 };
 var DropzoneArea$1 = withStyles(styles$3)(DropzoneArea);
 
@@ -1472,6 +1479,8 @@ var DropzoneDialog = function (_React$Component) {
                         DialogContent,
                         null,
                         React.createElement(DropzoneArea$1, {
+                            text: this.props.text,
+                            snackbarPosition: this.props.snackbarPosition,
                             acceptedFiles: this.props.acceptedFiles,
                             filesLimit: this.props.filesLimit,
                             maxFileSize: this.props.maxFileSize,
@@ -1516,6 +1525,8 @@ var DropzoneDialog = function (_React$Component) {
 DropzoneDialog.defaultProps = {
     open: false,
     acceptedFiles: ['image/*', 'video/*', 'application/*'],
+    text: 'Drag and drop a file here or click',
+    snackbarPosition: 'left',
     filesLimit: 3,
     maxFileSize: 3000000,
     showPreviews: true,
@@ -1543,7 +1554,9 @@ DropzoneDialog.propTypes = {
     showPreviews: PropTypes.bool,
     showPreviewsInDropzone: PropTypes.bool,
     showAlerts: PropTypes.bool,
-    clearOnUnmount: PropTypes.bool
+    clearOnUnmount: PropTypes.bool,
+    text: PropTypes.string,
+    snackbarPosition: PropTypes.string
 };
 
 export { DropzoneArea$1 as DropzoneArea, DropzoneDialog };
