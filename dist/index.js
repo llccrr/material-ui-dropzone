@@ -1317,7 +1317,7 @@ var DropzoneArea = function (_Component) {
                     {
                         anchorOrigin: {
                             vertical: 'bottom',
-                            horizontal: { snackbarPosition: snackbarPosition }
+                            horizontal: snackbarPosition
                         },
                         open: this.state.openSnackBar,
                         autoHideDuration: 6000,

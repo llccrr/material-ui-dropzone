@@ -169,7 +169,7 @@ class DropzoneArea extends Component{
                     <Snackbar
                         anchorOrigin={{
                             vertical: 'bottom',
-                            horizontal: {snackbarPosition},
+                            horizontal: snackbarPosition,
                         }}
                         open={this.state.openSnackBar}
                         autoHideDuration={6000}
