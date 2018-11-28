@@ -130,7 +130,7 @@ class DropzoneDialog extends React.Component {
 DropzoneDialog.defaultProps = {
     open: false,
     acceptedFiles: ['image/*', 'video/*', 'application/*'],
-    text: 'Drag and drop an image file here or click',
+    text: 'Drag and drop a file here or click',
     snackbarPosition: 'left',
     filesLimit: 3,
     maxFileSize: 3000000,
